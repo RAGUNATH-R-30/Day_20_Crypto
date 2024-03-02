@@ -1,0 +1,39 @@
+#left-div{
+    margin-top: 50px;
+    margin-left: 20px;
+    
+}
+#right-div{
+    margin-top: 40px;
+}
+.currency-card{
+    padding-top: 10px;
+}
+.card{
+    width: 600px;
+    background-color: #B2A4FF;
+}
+.coins-data-div{
+    height: 70px;
+    width: 600px;
+    background-color: #E8A0BF;
+    text-align: center;
+    margin-top: 8px;
+    border-radius: 4px;
+    padding-top: 12px;
+}
+.card-header{
+    background-color: #E8A0BF;
+}
+.card-body{
+    background-color: #C0DBEA;
+}
+body{
+    background-color: #FDF4F5;
+}
+#left-card{
+    width: 600px;
+}
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
