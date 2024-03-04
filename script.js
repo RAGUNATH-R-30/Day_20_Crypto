@@ -22,34 +22,42 @@ currency_data();
 
 //This function is used to fetch and display the Global cryptocoins data.
 async function global_data(){
-    let global_api_data =await fetch("https://api.coinlore.net/api/global/")
-    let response =await global_api_data.json();
 
-    let h2 = document.createElement("h2")
-    h2.innerText ="Global Data"
+    try {
+      let global_api_data =await fetch("https://api.coinlore.net/api/global/")
+      let response =await global_api_data.json();
+  
+      let h2 = document.createElement("h2")
+      h2.innerText ="Global Data"
+  
+      let global_div = document.createElement("div")
+      global_div.append(h2)
+      global_div.innerHTML=`<div class="card bg-light mb-3" id ="left-card" style="max-width: 18rem;">
+      <div class="card-header"><h2>Global Data</h2></div>
+      <div class="card-body">
+      <p><b>Coins Count:</b>${response[0].coins_count}.</p>
+      <p><b>Bitcoin Domination:</b>${response[0].btc_d}%.</p>
+      <p><b>Ethereum Domination:</b>${response[0].eth_d}%.</p>
+      <p><b>Total Marketcap:</b>${response[0].total_mcap}.</p>
+      <p><b>Total Volume:</b>${response[0].total_volume}.</p>
+      <p><b>Volume Change:</b>${response[0].volume_change}%.</p>
+      <p><b>Marketcap Change:</b>${response[0].mcap_change}%.</p>
+      <p><b>Average Change:</b>${response[0].avg_change_percent}%.</p>
+      <p><b>Active Markets:</b>${response[0].active_markets}.</p>
+      </div>
+    </div>`
+  
+      left_div.append(global_div)
+    } catch (error) {
+      alert(error)
+    }
 
-    let global_div = document.createElement("div")
-    global_div.append(h2)
-    global_div.innerHTML=`<div class="card bg-light mb-3" id ="left-card" style="max-width: 18rem;">
-    <div class="card-header"><h2>Global Data</h2></div>
-    <div class="card-body">
-    <p><b>Coins Count:</b>${response[0].coins_count}.</p>
-    <p><b>Bitcoin Domination:</b>${response[0].btc_d}%.</p>
-    <p><b>Ethereum Domination:</b>${response[0].eth_d}%.</p>
-    <p><b>Total Marketcap:</b>${response[0].total_mcap}.</p>
-    <p><b>Total Volume:</b>${response[0].total_volume}.</p>
-    <p><b>Volume Change:</b>${response[0].volume_change}%.</p>
-    <p><b>Marketcap Change:</b>${response[0].mcap_change}%.</p>
-    <p><b>Average Change:</b>${response[0].avg_change_percent}%.</p>
-    <p><b>Active Markets:</b>${response[0].active_markets}.</p>
-    </div>
-  </div>`
-
-    left_div.append(global_div)
 }
 
 //This function is used to fetch and display the 100 cryptocoins data.
 async function currency_data(){
+
+  try {
     let currency_data_api =await fetch("https://api.coinlore.net/api/tickers/?start=1&limit=100")
     let response = await currency_data_api.json()
     var rightdiv = document.getElementById("right-div")
@@ -77,4 +85,8 @@ async function currency_data(){
       </div>`
       rightdiv.append(currency_card)
     }
+  } catch (error) {
+    alert(error)
+  }
+
 }
